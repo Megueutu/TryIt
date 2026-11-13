@@ -1,0 +1,18 @@
+{
+  "name": "@tryit/api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "build": "tsc --noEmit && wrangler deploy --dry-run --outdir dist"
+  },
+  "dependencies": {
+    "@tryit/contracts": "0.0.0",
+    "hono": "^4"
+  },
+  "devDependencies": {
+    "typescript": "~6.0.3",
+    "wrangler": "^4"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "sum-two-numbers",
+  "title": "Soma de dois números",
+  "statement": "Leia dois inteiros, um por linha, da entrada padrão. Imprima a soma em uma única linha.",
+  "examples": [{ "input": "2\n4\n", "expected": "6\n" }],
+  "additionalCases": [
+    { "input": "10\n25\n", "expected": "35\n" },
+    { "input": "-5\n-8\n", "expected": "-13\n" }
+  ]
+}
