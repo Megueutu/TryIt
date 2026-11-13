@@ -24,4 +24,17 @@ Em outro terminal, execute `npm run dev`. O Vite encaminha `/api` para o Worker 
 
 Para executar código, copie `apps/api/.dev.vars.example` para `apps/api/.dev.vars` e informe o endereço base da API v2 do Piston e as versões instaladas de Java e JavaScript. Sem essa configuração, o exercício e o editor funcionam e a API retorna indisponibilidade ao executar ou submeter.
 
-O desenho de produção prevê Cloudflare Pages, Cloudflare Workers e Piston em uma VM Linux separada. A produção precisa encaminhar `/api` ao Worker e aplicar limites de acesso e concorrência antes de conectar um executor público. A escolha da VM e o provisionamento Terraform seguem pendentes.
+## Deploy na Cloudflare
+
+A configuração de produção publica o build Vue como Workers Static Assets e executa a API Hono no mesmo Worker. A SPA e as rotas `/api/*` compartilham a mesma origem.
+
+Com o Wrangler autenticado na conta de destino, execute da raiz:
+
+```sh
+npm ci
+npm run deploy:cloudflare
+```
+
+Para Workers Builds conectado ao GitHub, use a raiz do repositório e Node.js 24. Configure o build como `npm run build` e o deploy como `npm run deploy -w @tryit/api`.
+
+O catálogo e o editor funcionam sem o Piston. A execução depende de uma VM separada, das configurações do executor e de limites de acesso e concorrência. O provisionamento Terraform segue pendente.

@@ -1,10 +1,14 @@
 {
   "name": "tryit",
   "private": true,
-  "workspaces": ["apps/*", "packages/*"],
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "dev": "npm run dev -w @tryit/web",
     "dev:api": "npm run dev -w @tryit/api",
-    "build": "npm run build -w @tryit/api && npm run build -w @tryit/web"
+    "build": "npm run build -w @tryit/api && npm run build -w @tryit/web",
+    "deploy:cloudflare": "npm run build -w @tryit/web && npm run deploy -w @tryit/api"
   }
 }
